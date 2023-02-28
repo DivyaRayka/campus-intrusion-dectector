@@ -1,0 +1,19 @@
+[build-system]
+requires=[]
+backend-path=""
+
+[project]
+name = "Campus Intrusion Detector"
+version = "1.0.0"
+authors=[
+    {"Aayush Shrivastava(@aayushbest)","thebest1@live.in"}
+]
+description=""
+readme="README.md"
+requires-python=">=3.10.0"
+classifiers=[
+]
+
+[project.urls]
+"Homepage"="https://github.com/aayushbest/campus-intrusion-dectector"
+"Bug Tracker"=""

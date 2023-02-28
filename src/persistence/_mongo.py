@@ -1,10 +1,15 @@
+from typing import Any, Mapping
+
 from pymongo import MongoClient
 from pymongo.collection import Collection
 from pymongo.database import Database
 from pymongo.server_api import ServerApi
 
+from .data_source import DataSource
+from ..models.model import Model
 
-class MongoConnectorService:
+
+class MongoConnectorService(DataSource):
     __client: MongoClient | None = None
     __db: Database | None  = None
     __collection: Collection | None = None
@@ -17,17 +22,17 @@ class MongoConnectorService:
         self.__db = self.__client.get_default_database()
         self.__collection = self.__db.get_collection(collection)
 
-    def create_document(self, model):
+    def create(self, model: Model) -> None:
         self.__collection.insert_one(model)
 
-    def find_document_by_field(self, field_data):
+    def read(self, field_data: str) -> Mapping[str, Any]:
         document = self.__collection.find_one(field_data)
         return document
 
-    def find_and_delete_document(self, field_data):
+    def delete(self, field_data:str):
         document = self.__collection.find_one_and_delete(field_data)
         return document
 
-    def find_and_update_document(self, old_field_data, new_field_data):
+    def update(self, old_field_data:str, new_field_data:str):
         document = self.__collection.find_one_and_update(old_field_data,new_field_data)
         return document
