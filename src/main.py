@@ -1,4 +1,3 @@
-from bootstrapper import Bootstrapper
-
+from bootstrapper.Bootstrapper import Bootstrapper
 if __name__ == '__main__':
-    Bootstrapper.Bootstrapper.bootstrap()
+    Bootstrapper.bootstrap()

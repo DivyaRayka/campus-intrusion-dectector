@@ -1,14 +1,13 @@
-from abc import ABC
 from typing import Any
 from imutils.video import VideoStream
 
 
-class CameraStream(ABC):
+class CameraStream:
     __handle = None
 
-    def get_instance(self, url: str) -> Any:
+    def get_instance(self, url: str) -> any:
         # For now let it be like a camera simple functionality
-        if url == '':
+        if url is None:
             self.__handle = VideoStream()
         return self
 

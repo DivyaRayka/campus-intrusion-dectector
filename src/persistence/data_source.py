@@ -2,7 +2,7 @@ from abc import ABC
 from abc import abstractmethod
 from typing import Any
 
-from ..models.model import Model
+from models.model import Model
 
 
 class DataSource(ABC):
@@ -16,9 +16,9 @@ class DataSource(ABC):
         pass
 
     @abstractmethod
-    def update(self,old_field_data:str,new_field_data:str):
+    def update(self, old_field_data: str, new_field_data: str):
         pass
 
     @abstractmethod
-    def delete(self,field_data:str):
+    def delete(self, field_data: str):
         pass
